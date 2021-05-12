@@ -8,7 +8,7 @@ public class Leetcode39 {
     public static void main(String[] args) {
         int [] is ={10,1,2,7,6,1,5};
         Leetcode40 l =new Leetcode40();
-        System.out.println(l.combinationSum23(is,8).size());
+        System.out.println(l.combinationSum2(is,8).size());
     }
 
     public static List<List<Integer>> combinationSum(int[] candidates, int target) {
