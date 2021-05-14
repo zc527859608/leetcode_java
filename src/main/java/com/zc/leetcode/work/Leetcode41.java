@@ -49,18 +49,18 @@ public class Leetcode41 {
     }
     //自相缓存法，将大于0的数x放到num[x-1]处
     public static int firstMissingPositive2(int[] nums) {
-        int rindex=0;//
+        int rindex=0;//指向未缓存的最小数字
         for(int i=0;i<nums.length;i++){
             if(nums[i]>0&&nums[i]<=nums.length){
                 int x=nums[i];
-                if(nums[i]!=i+1&&nums[nums[i]-1]!=nums[i]){
-                    nums[i]=nums[nums[i]-1];
+                if(nums[i]!=i+1&&nums[nums[i]-1]!=nums[i]){//仅当不在对应位置或对应位置上已有对应数字
+                    nums[i]=nums[nums[i]-1];//将当前数字x与index为x-1处的数字互换
                     nums[x-1]=x;
                     i--;
                 }
-                if(rindex==x-1){
-                    for(int m=rindex+1;m<=nums.length;m++){
-                        if(m==nums.length)return m+1;
+                if(rindex==x-1){//是否是对应数字
+                    for(int m=rindex+1;m<=nums.length;m++){//向后找第一个未存放对应数字的位置  注意存在  为 1,2,3,4的情况，需要比遍历多一位
+                        if(m==nums.length)return m+1;//已遍历所有，则需提前返回当前index+1的值
                         if(nums[m]!=m+1){
                             rindex=m;
                             break;
@@ -69,6 +69,6 @@ public class Leetcode41 {
                 }
             }
         }
-        return rindex+1;
+        return rindex+1;//
     }
 }
