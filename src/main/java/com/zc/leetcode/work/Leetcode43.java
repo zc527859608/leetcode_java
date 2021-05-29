@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Leetcode43 {
     public static void main(String[] args) {
-        System.out.println(multiply1("999","999"));
+        System.out.println(multiply("999","999"));
     }
 
     public static String multiply(String num1, String num2) {
